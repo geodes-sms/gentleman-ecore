@@ -1,0 +1,5 @@
+rule EMF2JSON 
+	transform mm : Model {
+	template : "emf2json.egl"
+	target : "gen/" + mm.name.toLowerCase() + ".mm.json"
+}

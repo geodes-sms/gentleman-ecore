@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gent="geodes.sms.gentleman">
+  <gent:Model name="MindMap">
+    <concepts xsi:type="gent:Concrete" name="MindMap">
+      <structures xsi:type="gent:Attribute" name="title" target="/1"/>
+      <structures xsi:type="gent:Attribute" name="markers" target="/5"/>
+      <structures xsi:type="gent:Attribute" name="topic" target="/0/@concepts.3"/>
+      <structures xsi:type="gent:Attribute" name="maxMarker" target="/2"/>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="Marker">
+      <structures xsi:type="gent:Attribute" name="symbol" target="/3"/>
+      <structures xsi:type="gent:Attribute" name="color" target="/0/@concepts.6"/>
+    </concepts>
+    <concepts xsi:type="gent:Prototype" name="Topic">
+      <structures xsi:type="gent:Attribute" name="name" target="/4"/>
+      <structures xsi:type="gent:Attribute" name="marker" target="/0/@concepts.1"/>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="CentralTopic" prototype="/0/@concepts.2">
+      <structures xsi:type="gent:Attribute" name="maintopics" target="/6"/>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="MainTopic" prototype="/0/@concepts.2">
+      <structures xsi:type="gent:Attribute" name="subtopics" target="/7"/>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="SubTopic" prototype="/0/@concepts.2">
+      <structures xsi:type="gent:Attribute" name="subsubtopics" target="/8"/>
+    </concepts>
+    <concepts xsi:type="gent:Derivative" name="Color" base="string">
+      <values>RED</values>
+      <values>BLUE</values>
+      <values>BLACK</values>
+      <values>YELLOW</values>
+    </concepts>
+  </gent:Model>
+  <gent:CString name="string"/>
+  <gent:CNumber name="number"/>
+  <gent:CString name="string"/>
+  <gent:CString name="string"/>
+  <gent:CSet name="set" accept="/0/@concepts.1" minCardinality="3" maxCardinality="50"/>
+  <gent:CSet name="set" accept="/0/@concepts.4" maxCardinality="-1"/>
+  <gent:CSet name="set" accept="/0/@concepts.5" maxCardinality="-1"/>
+  <gent:CSet name="set" accept="/0/@concepts.5" maxCardinality="-1"/>
+</xmi:XMI>

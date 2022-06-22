@@ -1,0 +1,72 @@
+{
+	"String": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"Number": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"Boolean": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"Set": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"Colour": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"Time": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"Reference": {
+		"nature": "Primitive",
+		"projections":[
+			{
+				"type": "text",
+				"layout": ""
+			}
+		]
+	},
+	"@root": "String",
+    "@config": {
+        "language": "",
+        "settings": {
+            "autosave": true
+        }
+    }
+}

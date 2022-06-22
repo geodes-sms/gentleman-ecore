@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gent="geodes.sms.gentleman">
+  <gent:Model name="geodes.sms.diningroom.DiningRoomDsl">
+    <concepts xsi:type="gent:Concrete" name="Room">
+      <projections>
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Keyword" value="Room"/>
+          <elements xsi:type="gent:Reference" name="name"/>
+          <elements xsi:type="gent:Keyword" value="{"/>
+          <elements xsi:type="gent:Group">
+            <elements xsi:type="gent:Keyword" value="furnitures"/>
+            <elements xsi:type="gent:Keyword" value="{"/>
+            <elements xsi:type="gent:Reference" name="furnitures"/>
+            <elements xsi:type="gent:Group">
+              <elements xsi:type="gent:Keyword" value=","/>
+              <elements xsi:type="gent:Reference" name="furnitures"/>
+            </elements>
+            <elements xsi:type="gent:Keyword" value="}"/>
+          </elements>
+          <elements xsi:type="gent:Keyword" value="}"/>
+        </elements>
+      </projections>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="Furniture">
+      <projections>
+        <elements xsi:type="gent:Group"/>
+      </projections>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="EString">
+      <projections>
+        <elements xsi:type="gent:Group"/>
+      </projections>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="EInt">
+      <projections>
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Keyword" value="-"/>
+        </elements>
+      </projections>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="Chair">
+      <projections>
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Keyword" value="Chair"/>
+          <elements xsi:type="gent:Reference" name="id"/>
+        </elements>
+      </projections>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="Table">
+      <projections>
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Keyword" value="Table"/>
+          <elements xsi:type="gent:Reference" name="id"/>
+        </elements>
+      </projections>
+    </concepts>
+  </gent:Model>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value="^"/>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Keyword" value="_"/>
+    </elements>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Keyword" value="_"/>
+    </elements>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Keyword" value="&quot;"/>
+      <elements xsi:type="gent:Group">
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Keyword" value="\"/>
+        </elements>
+      </elements>
+      <elements xsi:type="gent:Keyword" value="&quot;"/>
+    </elements>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Keyword" value="'"/>
+      <elements xsi:type="gent:Group">
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Keyword" value="\"/>
+        </elements>
+      </elements>
+      <elements xsi:type="gent:Keyword" value="'"/>
+    </elements>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value="\"/>
+    <elements xsi:type="gent:Keyword" value="&quot;"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value="\"/>
+    <elements xsi:type="gent:Keyword" value="'"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value="/*"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value="//"/>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Keyword" value="&#xD;"/>
+      <elements xsi:type="gent:Keyword" value="&#xA;"/>
+    </elements>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value="&#xA;"/>
+    <elements xsi:type="gent:Keyword" value="&#xD;"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Keyword" value=" "/>
+    <elements xsi:type="gent:Keyword" value="&#x9;"/>
+    <elements xsi:type="gent:Keyword" value="&#xD;"/>
+    <elements xsi:type="gent:Keyword" value="&#xA;"/>
+  </gent:Group>
+  <gent:Keyword value="a"/>
+  <gent:Keyword value="z"/>
+  <gent:Keyword value="A"/>
+  <gent:Keyword value="Z"/>
+  <gent:Keyword value="a"/>
+  <gent:Keyword value="z"/>
+  <gent:Keyword value="A"/>
+  <gent:Keyword value="Z"/>
+  <gent:Keyword value="0"/>
+  <gent:Keyword value="9"/>
+  <gent:Keyword value="0"/>
+  <gent:Keyword value="9"/>
+  <gent:Keyword value="*/"/>
+</xmi:XMI>

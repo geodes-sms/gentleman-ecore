@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gent:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gent="geodes.sms.gentleman">
+  <concepts
+      xsi:type="gent:Primitive"
+      name="String"/>
+  <concepts
+      xsi:type="gent:Primitive"
+      name="Number"/>
+  <concepts
+      xsi:type="gent:Primitive"
+      name="Boolean"/>
+  <concepts
+      xsi:type="gent:Primitive"
+      name="Set"
+      value=""/>
+  <concepts
+      xsi:type="gent:Primitive"
+      name="Reference"/>
+</gent:Model>

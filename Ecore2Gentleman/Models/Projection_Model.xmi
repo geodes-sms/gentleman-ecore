@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gent="geodes.sms.gentleman">
+  <gent:Model name="geodes.sms.mindmap.MindMapDsl">
+    <concepts xsi:type="gent:Concrete" name="Model">
+      <projections>
+        <elements xsi:type="gent:Render" name="greetings"/>
+      </projections>
+    </concepts>
+    <concepts xsi:type="gent:Concrete" name="Greeting">
+      <projections>
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Word" value="Hello"/>
+          <elements xsi:type="gent:Render" name="name"/>
+          <elements xsi:type="gent:Word" value="!"/>
+        </elements>
+      </projections>
+    </concepts>
+  </gent:Model>
+  <gent:Model name="org.eclipse.xtext.common.Terminals"/>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value="^"/>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Word" value="_"/>
+    </elements>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Word" value="_"/>
+    </elements>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Word" value="&quot;"/>
+      <elements xsi:type="gent:Group">
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Word" value="\"/>
+        </elements>
+      </elements>
+      <elements xsi:type="gent:Word" value="&quot;"/>
+    </elements>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Word" value="'"/>
+      <elements xsi:type="gent:Group">
+        <elements xsi:type="gent:Group">
+          <elements xsi:type="gent:Word" value="\"/>
+        </elements>
+      </elements>
+      <elements xsi:type="gent:Word" value="'"/>
+    </elements>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value="\"/>
+    <elements xsi:type="gent:Word" value="&quot;"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value="\"/>
+    <elements xsi:type="gent:Word" value="'"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value="/*"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value="//"/>
+    <elements xsi:type="gent:Group">
+      <elements xsi:type="gent:Word" value="&#xD;"/>
+      <elements xsi:type="gent:Word" value="&#xA;"/>
+    </elements>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value="&#xA;"/>
+    <elements xsi:type="gent:Word" value="&#xD;"/>
+  </gent:Group>
+  <gent:Group>
+    <elements xsi:type="gent:Word" value=" "/>
+    <elements xsi:type="gent:Word" value="&#x9;"/>
+    <elements xsi:type="gent:Word" value="&#xD;"/>
+    <elements xsi:type="gent:Word" value="&#xA;"/>
+  </gent:Group>
+  <gent:Word value="a"/>
+  <gent:Word value="z"/>
+  <gent:Word value="A"/>
+  <gent:Word value="Z"/>
+  <gent:Word value="a"/>
+  <gent:Word value="z"/>
+  <gent:Word value="A"/>
+  <gent:Word value="Z"/>
+  <gent:Word value="0"/>
+  <gent:Word value="9"/>
+  <gent:Word value="0"/>
+  <gent:Word value="9"/>
+  <gent:Word value="*/"/>
+</xmi:XMI>

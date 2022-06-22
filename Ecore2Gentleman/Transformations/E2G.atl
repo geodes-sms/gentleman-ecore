@@ -1,0 +1,155 @@
+-- @nsURI MM=http://www.eclipse.org/emf/2002/Ecore
+-- @path MM1=/Ecore2Gentleman/MetaModels/Gentleman.ecore
+
+
+module E2G;
+create OUT: MM1 from IN: MM, IN_Library: MM1;
+
+rule EPackage2Model {
+	from
+		pkg: MM!EPackage
+	to
+		m: MM1!Model (
+			name <- pkg.name,
+			concepts <- pkg.eClassifiers
+		)
+}
+
+rule EClass2Concept {
+	from
+		class: MM!EClass (
+			class.abstract = false and class.interface = false
+		)
+	to
+		g: MM1!Concrete (
+			name <- class.name,
+			structures <- class.eStructuralFeatures,
+			prototype <- class.eSuperTypes -> first()
+		)
+}
+
+rule EAbstractClass2Prototype {
+	from
+		class: MM!EClass (
+			class.abstract = true
+		)
+	to
+		g: MM1!Prototype (
+			name <- class.name,
+			structures <- class.eStructuralFeatures
+		)
+}
+
+rule EEnum2Concept {
+	from
+		enum: MM!EEnum
+	to
+		g: MM1!Derivative (
+			name <- enum.name,
+			base <- 'string',
+			values <- enum.eLiterals->collect(e | e.name)
+		)
+}
+
+rule EAttribute2Attribute {
+	from
+		attr: MM!EStructuralFeature (
+			attr.many = false
+		)
+	to
+		a: MM1!Attribute (
+			name <- attr.name,
+			target <- if (attr.eType.name = 'EString') then
+					thisModule.EType2String(attr)
+				else
+					if (attr.eType.name = 'EBoolean') then
+						thisModule.EType2Boolean(attr)
+					else
+						if (attr.eType.name = 'EInt' or attr.eType.name = 'EByte') then
+							thisModule.EType2Number(attr)
+						else
+							attr.eType
+						endif
+					endif
+				endif
+		)
+}
+
+rule EAttributeMany2Set {
+	from
+		attr: MM!EStructuralFeature (
+			attr.many = true
+		)
+	to
+		a: MM1!Attribute (
+			name <- attr.name,
+			target <- thisModule.EType2Set(attr)
+		)
+}
+
+lazy rule EType2String {
+	from
+		st: MM!EAttribute
+	to
+		p1: MM1!CString (
+			name <- 'string',
+			default <- st.eType.defaultValue
+		)
+}
+
+lazy rule EType2Boolean {
+	from
+		st: MM!ETypedElement (
+			st.name = 'EBoolean'
+		)
+	to
+		p1: MM1!CBoolean (
+			name <- 'boolean'
+		)
+}
+
+lazy rule EType2Number {
+	from
+		st: MM!EAttribute
+	to
+		p1: MM1!CNumber (
+			name <- 'number',
+			default <- st.eType.defaultValue
+		)
+}
+
+lazy rule EType2Set {
+	from
+		st: MM!EReference
+	to
+		p1: MM1!CSet (
+			name <- 'set',
+			accept <- st.eType,
+			minCardinality <- st.lowerBound,
+			maxCardinality <- st.upperBound
+		)
+}
+
+--rule EReference2Attribute {
+--	from
+--		ref: MM!EReference (
+--			ref.many = false
+--		)
+--	to
+--		a: MM1!Attribute (
+--			name <- ref.name,
+--			target <- ref.eType
+--		)
+--}
+--
+--rule EReferenceMany2Set {
+--	from
+--		ref: MM!EReference (
+--			ref.many = true
+--		)
+--	to
+--		a: MM1!Attribute (
+--			name <- ref.name,
+--			target <- thisModule.EType2Set(ref)
+--		)
+--}

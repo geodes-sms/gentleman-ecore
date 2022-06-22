@@ -1,0 +1,114 @@
+{"concept": [
+	{
+		"id": "/0/@concepts.0",
+		"name": "MindMap",
+		"nature": "concrete"
+		,"attributes": [
+				{
+					"name": "title", 
+					"target": {
+						"name": "string"
+					}
+				},				{
+					"name": "markers", 
+					"target": {
+						"name": "set"
+,"accept": {
+							"name": "Marker"
+							}
+					}
+				},				{
+					"name": "topic", 
+					"target": {
+						"name": "CentralTopic"
+					}
+				},				{
+					"name": "maxMarker", 
+					"target": {
+						"name": "number"
+					}
+				}		]
+	},	{
+		"id": "/0/@concepts.1",
+		"name": "Marker",
+		"nature": "concrete"
+		,"attributes": [
+				{
+					"name": "symbol", 
+					"target": {
+						"name": "string"
+					}
+				},				{
+					"name": "color", 
+					"target": {
+						"name": "Color"
+					}
+				}		]
+	},	{
+		"id": "/0/@concepts.2",
+		"name": "Topic",
+		"nature": "prototype"
+		,"attributes": [
+				{
+					"name": "name", 
+					"target": {
+						"name": "string"
+					}
+				},				{
+					"name": "marker", 
+					"target": {
+						"name": "Marker"
+					}
+				}		]
+	},	{
+		"id": "/0/@concepts.3",
+		"name": "CentralTopic",
+		"nature": "concrete"
+		,"prototype": "Topic"
+		,"attributes": [
+				{
+					"name": "maintopics", 
+					"target": {
+						"name": "set"
+,"accept": {
+							"name": "MainTopic"
+							}
+					}
+				}		]
+	},	{
+		"id": "/0/@concepts.4",
+		"name": "MainTopic",
+		"nature": "concrete"
+		,"prototype": "Topic"
+		,"attributes": [
+				{
+					"name": "subtopics", 
+					"target": {
+						"name": "set"
+,"accept": {
+							"name": "SubTopic"
+							}
+					}
+				}		]
+	},	{
+		"id": "/0/@concepts.5",
+		"name": "SubTopic",
+		"nature": "concrete"
+		,"prototype": "Topic"
+		,"attributes": [
+				{
+					"name": "subsubtopics", 
+					"target": {
+						"name": "set"
+,"accept": {
+							"name": "SubTopic"
+							}
+					}
+				}		]
+	},	{
+		"id": "/0/@concepts.6",
+		"name": "Color",
+		"nature": "derivative"
+		,"base": "string"
+		,"values": ["RED","BLUE","BLACK","YELLOW"]
+	}]}

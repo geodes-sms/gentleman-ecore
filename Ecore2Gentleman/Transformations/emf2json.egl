@@ -1,0 +1,36 @@
+{"concept": [
+	[% for (concept in mm.concepts) { %]
+	[% var attributes = concept.structures.select(struct|struct.isKindOf(Attribute)); %]
+	[% var properties = concept.structures.select(struct|struct.isKindOf(Property)); %]
+	{
+		"id": "[%= concept.id %]",
+		"name": "[%= concept.name %]",
+		"nature": "[%= concept.type().name.toLowerCase() %]"
+		[% if (concept.hasProperty("prototype") and concept.prototype <> null) { %]
+		,"prototype": "[%= concept.prototype.name %]"
+		[% } %]
+		[% if (concept.hasProperty("base") and concept.base <> null) { %]
+		,"base": "[%= concept.base %]"
+		[% } %]
+		[% if (concept.hasProperty("values") and concept.values <> null) { %]
+		,"values": [[% for (val in concept.values) { %]"[%= val %]"[% if (concept.values.last() <> val) { %],[% } %][% } %]]
+		[% } %]
+		[% if (not attributes.isEmpty()) { %]
+		,"attributes": [
+			[%for (attr in attributes) { %]
+				{
+					"name": "[%= attr.name %]", 
+					"target": {
+						"name": "[%= attr.target.name %]"
+						[% if (attr.target.accept <> null) { %],"accept": {
+							"name": "[%= attr.target.accept.name %]"
+							}
+						[% } %]
+					}
+				}[% if (attributes.last() <> attr) { %],[% } %]
+			[% } %]
+		]
+		[% } %]
+	}[% if (mm.concepts.last() <> concept) { %],[% } %]
+	[% } %]
+]}

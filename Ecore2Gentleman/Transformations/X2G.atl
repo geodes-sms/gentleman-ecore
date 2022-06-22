@@ -1,0 +1,71 @@
+-- @nsURI MM=http://www.eclipse.org/2008/Xtext
+-- @path MM1=/Ecore2Gentleman/MetaModels/Gentleman.ecore
+
+
+module X2G;
+create OUT: MM1 from IN: MM;
+
+rule Xtext2Model {
+	from
+		g: MM!Grammar (
+			g.name <> 'org.eclipse.xtext.common.Terminals'
+		)
+	to
+		m: MM1!Model (
+			name <- g.name,
+			concepts <- g.rules
+		)
+}
+
+rule TerminalRule2Concept {
+	from
+		r: MM!TerminalRule
+	to
+		c: MM1!Concrete (
+			name <- r.name,
+			projections <- p
+		),
+		p: MM1!Projection (
+			elements <- r.alternatives
+		)
+}
+
+rule ParserRule2Concept {
+	from
+		r: MM!ParserRule
+	to
+		c: MM1!Concrete (
+			name <- r.name,
+			projections <- p
+		),
+		p: MM1!Projection (
+			elements <- r.alternatives
+		)
+}
+
+rule Group2Group {
+	from
+		xg: MM!CompoundElement
+	to
+		pg: MM1!Group (
+			elements <- xg.elements
+		)
+}
+
+rule Keyword2Word {
+	from
+		k: MM!Keyword
+	to
+		k_out: MM1!Word (
+			value <- k.value
+		)
+}
+
+rule Assignment2Render {
+	from
+		k: MM!Assignment
+	to
+		a: MM1!Render (
+			name <- k.feature
+		)
+}
